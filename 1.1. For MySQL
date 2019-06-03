@@ -1,0 +1,9 @@
+```java
+CREATE TABLE `ManagementStudent`.`account` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` NVARCHAR(50) NULL,
+  `password` NVARCHAR(50) NULL,
+  `type` INT NULL,
+  `status` INT NULL,
+  PRIMARY KEY (`id`));
+```
