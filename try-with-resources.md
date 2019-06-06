@@ -101,19 +101,20 @@ Nhìn qua chúng ta đều thấy Connection, PreparedStatement, ResultSet imple
 
 Sau đó sử dụng `try`-with-resources để lấy danh sách Products theo ví dụ sau:
 ```java
-public ArrayList<Product> getAllProducts() {
-    ArrayList<Product> list = new ArrayList<>();
+public List<Product> getAllProducts() {
+ 
     String query = "SELECT * FROM Products";
+    
     try (Connection con = MSSQLConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(query)) {
-
         ResultSet rs = ps.executeQuery();
+        
+        List<Product> list = new ArrayList<>();
         while (rs.next()) {
             Product product = new Product();
             list.add(product);
         }
-        return list;
-        
+        return list;     
     } catch (SQLException e) {
         e.printStackTrace();
     }
