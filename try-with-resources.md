@@ -65,9 +65,9 @@ Khi bạn khai báo bất kỳ tài nguyên implements `AutoCloseable` nào tron
     try(...){...}
 ```
 * Dọn dẹp tài nguyên xảy ra vì interface `AutoCloseable` mới. Phương thức `close()` của nó được gọi bởi JVM ngay khi khối `try` kết thúc.
-* Nếu bạn muốn sử dụng `try`-with-resources với custom resources, thì việc implementing `AutoCloseable` interface là bắt buộc. Nếu không chương trình sẽ không biên dịch.
+* Nếu bạn muốn sử dụng `try-with-resources` với custom resources, thì việc implementing `AutoCloseable` interface là bắt buộc. Nếu không chương trình sẽ không biên dịch.
 * Bạn không được phép gọi phương thức `close()` khi đã sử dụng `try`-with-resources. Điều này nên được gọi tự động bởi JVM. Gọi nó theo cách thủ công có thể gây ra kết quả không mong muốn.
-* Một câu lệnh `try`-with-resources có thể có `catch` và `finally` cũng giống như một câu lệnh `try` thông thường. Trong một câu lệnh `try`-with-resources, bất kỳ khối `catch` hoặc `finally` nào đều được chạy sau khi các tài nguyên được khai báo đã được đóng.
+* Một câu lệnh `try-with-resources` có thể có `catch` và `finally` cũng giống như một câu lệnh `try` thông thường. Trong một câu lệnh `try-with-resources`, bất kỳ khối `catch` hoặc `finally` nào đều được chạy sau khi các tài nguyên được khai báo đã được đóng.
 
 ## Ví dụ với JDBC
 
