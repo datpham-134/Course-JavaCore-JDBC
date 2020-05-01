@@ -1,4 +1,14 @@
 ```java
+config.properties
+
+db.host=localhost
+db.port=1433
+db.name=test
+db.user=sa
+db.password=12345678
+```
+
+```java
 package config;
 
 import java.io.FileInputStream;
