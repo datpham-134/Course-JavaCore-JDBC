@@ -50,3 +50,39 @@ public class ConnectURL {
     }
 }
 ```
+
+```java
+package main;
+
+import config.ConnectURL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author AnhDT
+ */
+public class Main {
+    
+    public static void main(String[] args) {
+        
+        String sql = "SELECT * FROM account";
+        
+        try (Connection con = DriverManager.getConnection(ConnectURL.getConnectionString());
+                PreparedStatement ps = con.prepareStatement(sql);) {
+            ResultSet rs = ps.executeQuery();
+            
+            // Iterate through the data in the result set and display it.
+            while (rs.next()) {
+                System.out.format("%9s %9s\n", rs.getString("username"), rs.getString("password"));
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
